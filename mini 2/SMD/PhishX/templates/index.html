@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'Css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/Style.css' %}">
+    <link rel="stylesheet" href="{% static 'Css/radio.css' %}">
+    <title>PhishX - Detect Phishing Smarter</title>
+</head>
+
+<body>
+    <section>
+        <header>
+            <nav class="navbar">
+                <div><a href="#" class="brand">PHISHX</a></div>
+                <ul>
+                    <li><a href="#" class="active">Web App</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="fluid-container content">
+            <div class="row m-auto">
+                <div class=" p-5 m-0 form-content align-right">
+                    <h1>Welcome to PhishX</h1>
+                    <p>Analyze suspicious text and detect phishing attempts in real time.</p>
+                </div>
+
+                <div class="col-md-6 p-5 m-0 form-content">
+                    <form method="post" action="check" class="main-form">
+                        {% csrf_token %}
+                        <textarea name="rawdata" placeholder="Enter your suspicious message here..." id="rawdata"></textarea><br>
+                        <div class="algo-choice">
+                            <label class="radiocontainer">Algo - 1
+                                <input type="radio" name="algo" value="Algo-1">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radiocontainer">Algo - 2
+                                <input type="radio" name="algo" value="Algo-2">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="check-holder">
+                            <button type="submit" class="check-btn">Analyze</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>&copy; 2025 PhishX. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'Js/JQuery.js' %}"></script>
+    <script src="{% static 'Js/Bootstrap.min.js' %}"></script>
+    <script src="{% static 'Js/Main.js' %}"></script>
+</body>
+</html>
